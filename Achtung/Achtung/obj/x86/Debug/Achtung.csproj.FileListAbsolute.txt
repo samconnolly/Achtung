@@ -1,0 +1,8 @@
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\bin\x86\Debug\Achtung.exe
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\bin\x86\Debug\Achtung.pdb
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\obj\x86\Debug\Achtung.csprojResolveAssemblyReference.cache
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\obj\x86\Debug\Achtung.exe
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\obj\x86\Debug\Achtung.pdb
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\bin\x86\Debug\Content\font.xnb
+K:\Gamedata\GameJam\Achtung\Achtung\Achtung\bin\x86\Debug\Content\sfont.xnb
