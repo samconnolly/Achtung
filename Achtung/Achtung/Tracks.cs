@@ -19,7 +19,7 @@ namespace Achtung
     //private static int y = ViewPortHelper.WindowedHeight;
         public int[,] trails = new int[1080, 720];
         public Texture2D blank;
-        public List<Color> colors = new List<Color>{Color.Green,Color.Red,Color.Blue,Color.Yellow};
+        public List<Color> colors = new List<Color>{Color.Green,Color.Red,Color.Blue,Color.Yellow, Color.White};
         private List<Tuple<Vector2,int>> addList = new List<Tuple<Vector2,int>> { };
         
         public Tracks(Color Color)
@@ -38,7 +38,12 @@ namespace Achtung
 
         public bool Check(Vector2 here)
         {
-            if (trails[(int)here.X, (int)here.Y] > 0)
+            if ((int)here.X < 0 | (int)here.X >= ViewPortHelper.WindowedWidth
+                    | (int)here.Y < 0 | (int)here.Y >= ViewPortHelper.WindowedHeight)
+            {
+                return true;
+            }
+            else if (trails[(int)here.X, (int)here.Y] > 0)
             {
                 return true;
             }
@@ -57,21 +62,21 @@ namespace Achtung
 
                 trails[(int)here.X, (int)here.Y] = colour;
 
-                if (here.X < ViewPortHelper.WindowedWidth - 1) { trails[(int)here.X + 1, (int)here.Y] = colour; }
+                if ((int)here.X < ViewPortHelper.WindowedWidth - 1) { trails[(int)here.X + 1, (int)here.Y] = colour; }
 
-               if (here.X > 1) { trails[(int)here.X-1, (int)here.Y] = colour;}
+                if ((int)here.X > 1) { trails[(int)here.X - 1, (int)here.Y] = colour; }
 
-                if (here.Y < ViewPortHelper.WindowedHeight - 1) {trails[(int)here.X, (int)here.Y+1] = colour;}
+                if ((int)here.Y < ViewPortHelper.WindowedHeight - 1) { trails[(int)here.X, (int)here.Y + 1] = colour; }
 
-                if (here.Y > 1) {trails[(int)here.X, (int)here.Y - 1] = colour;}
+                if ((int)here.Y > 0) { trails[(int)here.X, (int)here.Y - 1] = colour; }
 
-                if (here.X < ViewPortHelper.WindowedWidth - 1 && here.Y < ViewPortHelper.WindowedHeight - 1) { trails[(int)here.X + 1, (int)here.Y + 1] = colour; }
+                if ((int)here.X < ViewPortHelper.WindowedWidth - 1 && here.Y < ViewPortHelper.WindowedHeight - 1) { trails[(int)here.X + 1, (int)here.Y + 1] = colour; }
 
-                if (here.X < ViewPortHelper.WindowedWidth - 1 && here.Y > 1) { trails[(int)here.X + 1, (int)here.Y - 1] = colour; }
+                if ((int)here.X < ViewPortHelper.WindowedWidth - 1 && here.Y > 1) { trails[(int)here.X + 1, (int)here.Y - 1] = colour; }
 
-                if (here.X > 1 && here.Y < ViewPortHelper.WindowedHeight - 1) { trails[(int)here.X - 1, (int)here.Y + 1] = colour; }
+                if ((int)here.X > 1 && here.Y < ViewPortHelper.WindowedHeight - 1) { trails[(int)here.X - 1, (int)here.Y + 1] = colour; }
 
-                if (here.X > 1 && here.Y > 1) { trails[(int)here.X - 1, (int)here.Y - 1] = colour; }
+                if ((int)here.X > 1 && here.Y > 1) { trails[(int)here.X - 1, (int)here.Y - 1] = colour; }
             }
         }
 
@@ -83,6 +88,7 @@ namespace Achtung
                 {   
                     if (trails[x, y] > 0)
                     {
+                        int c = trails[x, y];
                         sbatch.Draw(blank, new Vector2(x,y), null, colors[trails[x, y]-1], 0, Vector2.Zero, 1.0f, SpriteEffects.None, 0.5f);
                     }
                 }

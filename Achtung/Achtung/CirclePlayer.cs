@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -15,10 +14,10 @@ namespace Achtung
 {
     public class CirclePlayer:Circle
     {
-        Vector2 velocity;
+        public Vector2 velocity;
         Random random;
         float speed = 2.0f;
-        float rotSpeed = 0.1f;
+        public float rotSpeed = 0.1f;
         public bool dead = false;
         public int player;
 
@@ -70,7 +69,7 @@ namespace Achtung
 
 
             if (position.X >= 0 && position.X < ViewPortHelper.WindowedWidth
-                    && position.Y >= 0 && position.Y < ViewPortHelper.WindowedHeight)
+                    && position.Y >= 36 && position.Y < ViewPortHelper.WindowedHeight)
             {
 
                 ObjectHelper.Get_Tracks.Add(position, player);

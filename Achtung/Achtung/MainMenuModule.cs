@@ -23,16 +23,11 @@ namespace Achtung
     {
         //private Rectangle _drawRectangle;
         private Vector2 _position = new Vector2(0, 0);
-        private Texture2D _background;
-        private Rectangle _backRect;
-        private bool _isPlayingMusic = false;
-        private bool _isMuted = false;
-        private Song music;
 
         private SpriteFont font;
         private List<Color> colours;
         private int selected = 0;
-        private int max = 3;
+        private int max = 4;
         private int tree = 0;
 
         public MainMenuModule(Game game)
@@ -63,13 +58,6 @@ namespace Achtung
 
         internal override void Update(GameTime gameTime, SpriteBatch batch)
         {
-            //Play music if not playing already.
-            if (!_isPlayingMusic)
-            {
-                MediaPlayer.IsRepeating = true;
-                _isPlayingMusic = true;
-            }
-
             if (InputHelper.WasButtonPressed(Microsoft.Xna.Framework.Input.Keys.Enter) || InputHelper.WasButtonPressed(Microsoft.Xna.Framework.Input.Keys.Space) || InputHelper.WasPadButtonPressedP1(Buttons.A))
             {
                 if (tree == 0)
@@ -85,19 +73,20 @@ namespace Achtung
                         ScoreHelper.NPlayers += 1;
                         if (ScoreHelper.NPlayers > 4)
                         {
-                            ScoreHelper.NPlayers = 2;
+                            ScoreHelper.NPlayers = 1;
                         }
                     }
                     else if (selected == 2)
                     {
                         ViewPortHelper.ToggleFullscreen();
 
-                        // options menu... off atm
-                        //tree = 1;
-                        //selected = 0;
                     }
-                    
                     else if (selected == 3)
+                    {
+                        tree = 1;
+                        selected = 0;
+                    }
+                    else if (selected == 4)
                     {
                         Game.Exit();
                     }
@@ -151,8 +140,8 @@ namespace Achtung
             {
                 ViewPortHelper.ToggleFullscreen();
             }
-             
-            colours = new List<Color> { Color.White, Color.White, Color.White, Color.White };
+
+            colours = new List<Color> { Color.White, Color.White, Color.White, Color.White, Color.White };
             colours[selected] = Color.Red;
         }
 
@@ -163,9 +152,9 @@ namespace Achtung
             {
                 batch.DrawString(font, "New Game", new Vector2(200, 300), colours[0], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
                 batch.DrawString(font, "Players: "+ScoreHelper.NPlayers.ToString(), new Vector2(200, 350), colours[1], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                //batch.DrawString(font, "Options", new Vector2(200, 400), colours[2], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
                 batch.DrawString(font, "Toggle Full Screen", new Vector2(200, 400), colours[2], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                batch.DrawString(font, "Exit", new Vector2(200, 450), colours[3], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+                batch.DrawString(font, "Controls", new Vector2(200, 450), colours[3], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+                batch.DrawString(font, "Exit", new Vector2(200, 500), colours[4], 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
             }
             else if (tree == 1)
             {

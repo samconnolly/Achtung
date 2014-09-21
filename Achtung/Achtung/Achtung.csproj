@@ -115,10 +115,12 @@
     <Compile Include="GameModule.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameStateManager.cs" />
+    <Compile Include="AICirclePlayer.cs" />
     <Compile Include="Helpers\DeathHelper.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
     <Compile Include="Helpers\ObjectHelper.cs" />
     <Compile Include="Helpers\ScoreHelper.cs" />
+    <Compile Include="Line.cs" />
     <Compile Include="MainMenuModule.cs" />
     <Compile Include="ModuleBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

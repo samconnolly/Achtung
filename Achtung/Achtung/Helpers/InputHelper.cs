@@ -216,12 +216,12 @@ namespace Achtung
 
         public static void SetGamePadStatePlayer3()
         {
-            CurrentGamePadStatePlayer2 = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.Three);
+            CurrentGamePadStatePlayer3 = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.Three);
         }
 
         public static void SetGamePadStatePlayer4()
         {
-            CurrentGamePadStatePlayer2 = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.Four);
+            CurrentGamePadStatePlayer4 = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.Four);
         }
         
         #endregion
