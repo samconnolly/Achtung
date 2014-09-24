@@ -8,6 +8,7 @@ namespace Achtung
     public static class ScoreHelper
     {
         private static int _nplayers = 1;
+        private static int _nAIplayers = 1;
         private static List<CirclePlayer> _players;
         private static List<int> _scores = new List<int>{0,0,0,0};
 
@@ -15,6 +16,12 @@ namespace Achtung
         {
             get { return _nplayers; }
             set { _nplayers = value; }
+        }
+
+        public static int NAIPlayers
+        {
+            get { return _nAIplayers; }
+            set { _nAIplayers = value; }
         }
 
         public static List<CirclePlayer> Players

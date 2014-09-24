@@ -14,7 +14,6 @@ namespace Achtung
     {
         private List<CirclePlayer> players;
         private List<CirclePlayer> AIplayers;
-        private int nAIplayers = 1;
         private Tracks tracks;
         private List<Color> colours = new List<Color> { Color.Green, Color.Red, Color.Blue, Color.Yellow, Color.White };
 
@@ -50,11 +49,11 @@ namespace Achtung
                 players.Add(new CirclePlayer(new Vector2(x, y), 5, colours[i], i));
             }
 
-            for (int i = 0; i < nAIplayers; i++)
+            for (int i = 0; i < ScoreHelper.NAIPlayers; i++)
             {
                 x = (int)(random.NextDouble() * 880 + 100);
                 y = (int)(random.NextDouble() * 520 + 100);
-                AIplayers.Add(new AICirclePlayer(new Vector2(x, y), 5, colours[4]));
+                AIplayers.Add(new AICirclePlayer(new Vector2(x, y), 5, colours[4],4+i));
             }
         }
 
@@ -116,7 +115,7 @@ namespace Achtung
                 }
 
                 if (players.Count() < 2 && ScoreHelper.NPlayers != 1 |
-                       ScoreHelper.NPlayers == 1 && (AIplayers.Count() < 1)) // | players.Count() < 1 
+                       ScoreHelper.NPlayers == 1 && (AIplayers.Count() < 1 | players.Count() < 1 ))
                 {
                     if (end == false)
                     {

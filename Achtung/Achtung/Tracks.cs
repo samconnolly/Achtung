@@ -19,7 +19,7 @@ namespace Achtung
     //private static int y = ViewPortHelper.WindowedHeight;
         public int[,] trails = new int[1080, 720];
         public Texture2D blank;
-        public List<Color> colors = new List<Color>{Color.Green,Color.Red,Color.Blue,Color.Yellow, Color.White};
+        public List<Color> colors = new List<Color> { Color.Green, Color.Red, Color.Blue, Color.Yellow, Color.White, Color.White, Color.White, Color.White };
         private List<Tuple<Vector2,int>> addList = new List<Tuple<Vector2,int>> { };
         
         public Tracks(Color Color)

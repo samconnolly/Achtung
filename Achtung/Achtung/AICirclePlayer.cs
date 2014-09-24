@@ -18,11 +18,12 @@ namespace Achtung
         private bool turn = false;
         private int turnDir = 1;
         private int turnSum = 0;
-        private Random random = new Random();
+        private Random random;
 
-        public AICirclePlayer(Vector2 Position, int Radius, Color Colour)
-            : base(Position, Radius, Colour, 4)
+        public AICirclePlayer(Vector2 Position, int Radius, Color Colour, int player)
+            : base(Position, Radius, Colour, player)
         {
+            random = new Random(player);
         }
 
         public override void Update()
@@ -120,7 +121,7 @@ namespace Achtung
 
             if (turn == false)
             {
-                if (random.NextDouble() < 0.7f)
+                if (random.NextDouble() < 0.7f) //0.7f
                 {
                     turn = true;
 

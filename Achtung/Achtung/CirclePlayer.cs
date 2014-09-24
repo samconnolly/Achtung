@@ -24,7 +24,7 @@ namespace Achtung
         public CirclePlayer(Vector2 Position, int Radius, Color Color, int nplayer)
             : base(Position, Radius, Color)
         {
-            random = new Random();
+            random = new Random(nplayer);
             velocity = Vector2.One*speed;
             double angle = random.NextDouble() * Math.PI * 2;
             velocity = RotateVector(velocity, angle);
